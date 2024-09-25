@@ -122,15 +122,24 @@ function createUserCard(user) {
 }
 
 function createRepoList(repos) {
+  const repoWrapper = document.createElement("div");
+  repoWrapper.classList.add("repo-wrapper");
+
   const list = document.createElement("ul");
   list.classList.add("repo-list");
+
+  if (repos.length > 5) {
+    repoWrapper.style.paddingRight = "5px";
+  }
 
   repos.forEach((repo) => {
     const repoItem = createRepoItem(repo);
     list.appendChild(repoItem);
   });
 
-  return list;
+  repoWrapper.appendChild(list);
+
+  return repoWrapper;
 }
 
 function createRepoItem(repo) {

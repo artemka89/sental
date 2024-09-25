@@ -1,0 +1,24 @@
+:root {
+  --background: #000;
+  --card: #49c5b6;
+  --primary: #fff;
+  --secondary: #000;
+  --muted: #49c5b783;
+  --muted-foreground: #266963;
+  --accent: #49c5b6;
+  --border: #49c5b6;
+  --radius: 0.5rem;
+
+  --font-weight-regular: 400;
+  --font-weight-medium: 500;
+  --font-weight-semibold: 600;
+  --font-weight-bold: 700;
+
+  --font-size-sm: 0.875rem;
+  --font-size-md: 1rem;
+  --font-size-lg: 1.25rem;
+  --font-size-xl: 1.5rem;
+  --font-size-2xl: 2rem;
+  --font-size-3xl: 2.5rem;
+  --font-size-4xl: 3rem;
+}
