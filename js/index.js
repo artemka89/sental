@@ -7,13 +7,6 @@ const userContent = document.querySelector(".user-content");
 
 searchInput.addEventListener("keyup", debounce(searchUserHandler, 500));
 
-window.addEventListener("click", (event) => {
-  const valueList = event.target.closest(".searching-user-list");
-  if (valueList || event.target === searchInput) return;
-
-  searchingUserList.style.display = "none";
-});
-
 async function searchUserHandler(event) {
   const value = event.target.value;
 
@@ -26,6 +19,16 @@ async function searchUserHandler(event) {
   }
 
   renderSearchingUsers(searchingUsers.items);
+}
+
+function onClickWithOutSearchingUserList(event) {
+  const valueList = event.target.closest(".searching-user-list");
+  if (valueList || event.target === searchInput) return;
+
+  searchingUserList.style.display = "none";
+  console.log("click");
+
+  window.removeEventListener("click", onClickWithOutSearchingUserList);
 }
 
 async function onClickSearchingUserHandler(username) {
@@ -52,6 +55,8 @@ function renderSearchingUsers(users) {
   });
   searchingUserList.classList.add("searching-user-list");
   searchingUserList.style.display = "block";
+
+  window.addEventListener("click", onClickWithOutSearchingUserList);
 }
 
 function renderUserContent(data) {
