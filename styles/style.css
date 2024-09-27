@@ -54,7 +54,7 @@ body {
   position: relative;
 }
 
-.searching-user-wrapper {
+.searching-users-popup {
   display: none;
   max-height: 360px;
   overflow-y: auto;
@@ -71,37 +71,41 @@ body {
   box-shadow: 4px 4px 8px 0px rgba(34, 60, 80, 0.2);
 }
 
-.searching-user-wrapper::-webkit-scrollbar {
+.searching-users-popup::-webkit-scrollbar {
   height: 6px;
   width: 6px;
 }
 
-.searching-user-wrapper::-webkit-scrollbar-track {
+.searching-users-popup::-webkit-scrollbar-track {
   border-radius: 5px;
   background-color: var(--muted);
 }
 
-.searching-user-wrapper::-webkit-scrollbar-thumb {
+.searching-users-popup::-webkit-scrollbar-thumb {
   border-radius: 5px;
   background-color: var(--border);
 }
 
-.searching-user-wrapper li {
+.searching-users-popup li {
   padding: 8px 16px;
   cursor: pointer;
   background-color: transparent;
   transition: background 0.2s ease;
 }
 
+@media (hover: hover) {
+  .searching-users-popup li:hover {
+    background-color: var(--secondary);
+  }
+}
+
+.searching-user-list-end-element {
+  height: 5px;
+}
+
 .searching-user-not-found {
   padding: 8px 16px;
   background-color: transparent;
-}
-
-@media (hover: hover) {
-  .searching-user-wrapper li:hover {
-    background-color: var(--secondary);
-  }
 }
 
 .main-title {
