@@ -57,10 +57,10 @@ export function renderSearchingUsers(renderUserContent) {
 
     const username = event.target.textContent;
 
-    const userData = await getUserData(username);
-
-    if (userData) {
-      renderUserContent(userData);
+    if (username) {
+      renderUserContent(username);
+      searchInput.value = "";
+      history.pushState({ user: username }, "", `?user=${username}`);
     }
   }
 

@@ -1,12 +1,16 @@
-export function renderUserContent(data) {
+import { getUserData } from "./services.js";
+
+export async function renderUserContent(username) {
   const userContent = document.querySelector(".user-content");
+
+  const userData = await getUserData(username);
 
   if (userContent.hasChildNodes()) {
     userContent.innerHTML = "";
   }
 
-  const userCard = createUserCard(data.user);
-  const reposList = createRepoList(data.repos);
+  const userCard = createUserCard(userData.user);
+  const reposList = createRepoList(userData.repos);
 
   userContent.append(userCard, reposList);
 
