@@ -1,6 +1,9 @@
 const API_URL = "https://api.github.com";
+export const USER_PER_PAGE = 20;
 
 export async function getUser(username) {
+  if (!username) return null;
+
   try {
     const response = await fetch(`${API_URL}/users/${username}`);
 
@@ -39,9 +42,11 @@ export async function getUserData(login) {
   return { user, repos };
 }
 
-export async function searchUser(username) {
+export async function searchUser(username, page = 1) {
   try {
-    const response = await fetch(`${API_URL}/search/users?q=${username}`);
+    const response = await fetch(
+      `${API_URL}/search/users?q=${username}&per_page=${USER_PER_PAGE}&page=${page}`
+    );
 
     if (response.ok) {
       return await response.json();
