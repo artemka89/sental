@@ -1,7 +1,7 @@
 import { debounce } from "./lib.js";
 import { getUserData, searchUser, USER_PER_PAGE } from "./services.js";
 
-export function renderSearchUsers(renderUserContent) {
+export function renderSearchingUsers(renderUserContent) {
   const searchInput = document.getElementById("search-input");
   const searchingUserWrapper = document.getElementById(
     "searching-user-wrapper"
